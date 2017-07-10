@@ -5,13 +5,13 @@
 <div class="row">
   <div class="col-md-6">
     <div class="buttons">
-      <%# if is_admin? %>
+      <% if is_admin? %>
         <%= link_to "Edit", edit_product_path(@product.id), class: "btn" %>
         <%= link_to "Delete", product_path(@product.id),
               :data => {:confirm => "You sure?",
               :method => "delete"},
               class: "btn btn-danger" %>
-      <%# end %>
+      <% end %>
     </div>
     <h3>Cost: $<%= @product.cost %></h3>
     <h3>Game Type: <%= @product.game_type %></h3>
@@ -31,14 +31,14 @@
     <div class="panel-heading">
       <%= review.author %> Submitted
       <%= time_ago_in_words(review.created_at) %>
-      <%# if is_admin? %>
+      <% if is_admin? %>
         <span>
           <%= link_to "Delete", product_review_path(@product, review.id),
                 :data => {:confirm => "You sure?",
                 :method => "delete"},
                 class: "btn btn-danger" %>
         </span>
-      <%# end %>
+      <% end %>
     </div>
     <div class="panel-body">
       <p><%= review.body %></p>
@@ -52,5 +52,4 @@
     <%#= render partial: "reviews/form", locals: {product: @product} %>
   </div>
 </div>
-
 <%= link_to "back", :back %>

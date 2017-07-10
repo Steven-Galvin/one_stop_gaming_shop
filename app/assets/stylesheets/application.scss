@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ $offWhite: #640D14;
+ $brown: #250902;
+ $black: #AD2831;
+ $lightred: green;
+ $red: darkgreen;
+
+ body {
+   background: $brown;
+   color: $black;
+   .jumbotron {
+     background: $black;
+     color: $offWhite;
+     text-align: center;
+   }
+
+   .btn, input {
+     margin: 5px;
+   }
+
+   .buttons {
+     display: inline-flex;
+   }
+
+   a {
+     color: $black;
+   }
+
+   input {
+     background: $brown;
+     border-top: none;
+
+     border-color: $offWhite;
+   }
+
+   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+     color: $black;
+   }
+   ::-moz-placeholder { /* Firefox 19+ */
+     color: $black;
+   }
+   :-ms-input-placeholder { /* IE 10+ */
+     color: $black;
+   }
+
+   .panel {
+     color: $brown;
+     border-color: $black;
+     .panel-heading {
+       background: $offWhite;
+     }
+     .panel-body {
+       background: $black;
+       color: $brown;
+     }
+
+     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+       color: $black;
+     }
+     ::-moz-placeholder { /* Firefox 19+ */
+       color: $black;
+     }
+     :-ms-input-placeholder { /* IE 10+ */
+       color: $black;
+     }
+
+     input[type="text"], input[type="number"], textarea {
+       background: $brown;
+     }
+   }
+
+   .navbar {
+     .nav {
+       .nav_text {
+         padding: 15px;
+       }
+
+       li {
+         a:hover {
+           background: $black;
+           color: $offWhite;
+           border-radius: 5px;
+         }
+       }
+     }
+   }
+
+   .image {
+     width: 100%;
+   }
+
+   .btn {
+     background: $offWhite;
+     color: $black;
+   }
+
+   .btn:hover {
+     background: $black;
+     color: $offWhite;
+   }
+
+   .btn-inverse {
+     background: $black;
+     color: $offWhite;
+   }
+
+   .btn-inverse:hover {
+     background: $brown;
+     color: $black;
+   }
+
+   .btn-danger {
+     background: $red;
+     color: #000;
+     border-color: $red;
+     &:hover {
+       background: $lightred;
+       border-color: $red;
+       color: #000;
+     }
+   }
+
+ }
