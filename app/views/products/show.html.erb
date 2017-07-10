@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @product.name %></h2>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="buttons">
+      <%# if is_admin? %>
+        <%= link_to "Edit", edit_product_path(@product.id), class: "btn" %>
+        <%= link_to "Delete", product_path(@product.id),
+              :data => {:confirm => "You sure?",
+              :method => "delete"},
+              class: "btn btn-danger" %>
+      <%# end %>
+    </div>
+    <h3>Cost: $<%= @product.cost %></h3>
+    <h3>Game Type: <%= @product.game_type %></h3>
+    <h3>Genre: <%= @product.genre %></h3>
+    <h3>Description</h3>
+    <h4><%= @product.description %></h4>
+  </div>
+
+  <div class="col-md-6">
+    <%#= image_tag @product.image.url, class: 'image' %>
+  </div>
+</div>
+<h3>Reviews</h3>
+
+<% @product.reviews.each do |review| %>
+  <div class="panel">
+    <div class="panel-heading">
+      <%= review.author %> Submitted
+      <%= time_ago_in_words(review.created_at) %>
+      <%# if is_admin? %>
+        <span>
+          <%= link_to "Delete", product_review_path(@product, review.id),
+                :data => {:confirm => "You sure?",
+                :method => "delete"},
+                class: "btn btn-danger" %>
+        </span>
+      <%# end %>
+    </div>
+    <div class="panel-body">
+      <p><%= review.body %></p>
+    </div>
+  </div>
+<% end %>
+
+<div class="panel">
+  <div class="panel-heading"><h4>Add Review</h4></div>
+  <div class="panel-body">
+    <%#= render partial: "reviews/form", locals: {product: @product} %>
+  </div>
+</div>
+
+<%= link_to "back", :back %>
