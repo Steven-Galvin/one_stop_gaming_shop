@@ -138,3 +138,17 @@
    }
 
  }
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  .article {
+    border: 1px solid $black;
+    margin: 7px;
+    padding: 10px;
+    flex-basis: 30%;
+    img {
+      width: 100%;
+    }
+  }
+}

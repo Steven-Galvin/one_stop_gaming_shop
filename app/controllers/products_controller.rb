@@ -1,11 +1,21 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  def landing
+    @result = Product.new()
+    respond_to do |format|
+      format.html { render :landing }
+      format.js
+    end
+  end
+
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
-    @order_item = current_order.order_items.new
+    if current_user
+      @order_item = current_order.order_items.new
+    end
   end
 
   # GET /products/1

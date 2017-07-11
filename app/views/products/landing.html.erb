@@ -1,0 +1,23 @@
+<h2>Welcome</h2>
+  <%#= select_tag "Search", '<option value="top">Top Articles</option>', '<option value="recent">Recent Articles</option>', onchange: "get_news_search()" %>
+
+  <%= form_for @result, remote: true do |f| %>
+    <%= f.select :articles, options_for_select([
+      ["Top Articles", "top"],
+      ["Recent Articles", "recent"]
+      ]), class: "search" %>
+  <% end %>
+
+<div class="articles">
+  <% if @articles %>
+    <% @articles.each do |article| %>
+      <div class="article">
+        Written by: <%= article['author'] %><br>
+        Title: <%= article['title'] %><br>
+        <%= link_to "Check it out", article['url'] %><br>
+        <%= article['publishedAt'] %>
+        <%= image_tag(article['urlToImage']) %><br>
+      </div>
+    <% end %>
+  <% end %>
+</div>

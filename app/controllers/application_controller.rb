@@ -3,10 +3,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :is_admin?, :current_order
 
   def current_order
-    if session[:order_id]
-      Order.find(session[:order_id])
-    else
-      current_user.account.orders.create!
+    if current_user
+      if session[:order_id]
+        Order.find(session[:order_id])
+      else
+        current_user.account.orders.create!
+      end
     end
   end
 
